@@ -1,17 +1,76 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, RouterModule, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './app/components/dashboard/dashboard.component';
+import { ProfileListComponent } from './app/components/profile/profile-list.component';
+import { ProfileFormComponent } from './app/components/profile/profile-form.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, RouterModule, RouterOutlet],
   template: `
-    <h1>Hello from {{ name }}!</h1>
-    <a target="_blank" href="https://angular.dev/overview">
-      Learn more about Angular
-    </a>
-  `,
+    <div class="wrapper">
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+              <i class="fas fa-bars"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <a href="/" class="brand-link">
+          <span class="brand-text font-weight-light">AdminLTE 3</span>
+        </a>
+
+        <div class="sidebar">
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column">
+              <li class="nav-item">
+                <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/profiles']" routerLinkActive="active" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>Profiles</p>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <router-outlet></router-outlet>
+
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+          Version 1.0.0
+        </div>
+        <strong>Copyright &copy; 2024</strong> All rights reserved.
+      </footer>
+    </div>
+  `
 })
 export class App {
   name = 'Angular';
 }
 
-bootstrapApplication(App);
+const routes = [
+  { path: '', component: DashboardComponent },
+  { path: 'profiles', component: ProfileListComponent },
+  { path: 'profiles/new', component: ProfileFormComponent },
+  { path: 'profiles/edit/:id', component: ProfileFormComponent }
+];
+
+bootstrapApplication(App, {
+  providers: [
+    provideRouter(routes)
+  ]
+}).catch(err => console.error(err));
