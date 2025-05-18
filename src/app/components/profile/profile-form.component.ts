@@ -10,35 +10,8 @@ import Swal from 'sweetalert2';
   selector: 'app-profile-form',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  template: `
-    <div class="content-wrapper">
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">{{isEditing ? 'Edit' : 'New'}} Profile</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <section class="content">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <form (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" [(ngModel)]="profile.name" name="name" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-secondary" [routerLink]="['/profiles']">Cancel</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  `
+  templateUrl: './profile-form.component.html',
+  styleUrls: ['./profile-form.component.css']
 })
 export class ProfileFormComponent implements OnInit {
   profile: Profile = { name: '' };

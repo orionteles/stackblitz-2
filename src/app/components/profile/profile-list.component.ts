@@ -9,56 +9,8 @@ import Swal from 'sweetalert2';
   selector: 'app-profile-list',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  template: `
-    <div class="content-wrapper">
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h1 class="m-0">Profiles</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <section class="content">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Profile List</h3>
-              <button class="btn btn-primary" [routerLink]="['/profiles/new']">
-                New Profile
-              </button>
-            </div>
-            <div class="card-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th class="table-actions">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let profile of profiles">
-                    <td>{{profile.id}}</td>
-                    <td>{{profile.name}}</td>
-                    <td>
-                      <button class="btn btn-sm btn-info" [routerLink]="['/profiles/edit', profile.id]">
-                        Edit
-                      </button>
-                      <button class="btn btn-sm btn-danger" (click)="deleteProfile(profile.id!)">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  `
+  templateUrl: './profile-list.component.html',
+  styleUrls: ['./profile-list.component.css']
 })
 export class ProfileListComponent implements OnInit {
   profiles: Profile[] = [];

@@ -1,0 +1,21 @@
+.small-box {
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.small-box .inner {
+  padding: 10px;
+}
+
+.small-box h3 {
+  font-size: 38px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.small-box p {
+  font-size: 15px;
+  margin-bottom: 0;
+}

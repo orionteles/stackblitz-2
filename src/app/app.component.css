@@ -1,0 +1,16 @@
+.brand-link {
+  text-align: center;
+  padding: 0.8rem;
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.brand-link:hover {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+}
