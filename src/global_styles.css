@@ -12,7 +12,10 @@
 }
 
 /* Card styles */
-
+.card-header {
+  display: flex;
+  align-items: center;
+}
 
 /* Button styles */
 .btn {
