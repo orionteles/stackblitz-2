@@ -1,20 +1,39 @@
 @import 'admin-lte/dist/css/adminlte.min.css';
 
+/* Layout styles */
 .content-wrapper {
   min-height: calc(100vh - 57px);
 }
 
+/* Table styles */
 .table-actions {
   width: 150px;
   text-align: center;
 }
 
-.btn {
-  margin-right: 5px;
-}
-
+/* Card styles */
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Button styles */
+.btn {
+  margin-right: 5px;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+/* Content header styles */
+.content-header {
+  padding: 15px 0.5rem;
+}
+
+.content-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
 }
